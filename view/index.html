@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Text Detector</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav>
+      <h1>Welcome to the {Site Name}</h1>
+    </nav>
+
+    <h2>Test the text below</h2>
+
+    <div class="input">
+      <form action="https://api.gptzero.me/v2/predict/text" method="POST">
+        <textarea type="text" name="input"></textarea>
+
+        <p class="info">Or Upload any document</p>
+        <input type="file" name="file" id="fle" hidden />
+
+        <label for="fle">Choose File</label>
+
+        <button>Check</button>
+      </form>
+    </div>
+  </body>
+</html>
