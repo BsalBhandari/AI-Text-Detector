@@ -1,0 +1,58 @@
+body {
+    background-color: grey;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  nav {
+    background-color: darkgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+  }
+
+  h2 {
+    display: flex;
+    justify-content: center;
+    color: rgb(12, 27, 27);
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form textarea {
+    padding: 15px;
+    height: 20rem;
+    width: 80rem;
+    border: 2px solid black;
+    border-radius: 40px;
+  }
+
+  form button {
+    margin: 20px;
+    width: 20rem;
+    height: 2rem;
+
+    background-color: rgb(83, 80, 75);
+    border-radius: 10px;
+    color: white;
+  }
+
+  label {
+    background-color: rgb(28, 23, 31);
+    color: white;
+    padding: 0.5rem;
+    font-family: sans-serif;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
