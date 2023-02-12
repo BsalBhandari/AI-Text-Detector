@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Text Detector</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav>
@@ -15,16 +15,13 @@
     <h2>Test the text below</h2>
 
     <div class="input">
-      <form action="" method="">
-        <textarea type="text" name="input"></textarea>
+      <textarea type="text" name="input" id="textarea"></textarea>
 
-        <p class="info">Or Upload any document</p>
-        <input type="file" name="file" id="fle" hidden />
-
-        <label for="fle">Choose File</label>
-
-        <button>Check</button>
-      </form>
+      <button id="submit">Check</button>
     </div>
+
+    <h3 id="response"></h3>
+
+    <script src="index.js"></script>
   </body>
 </html>
