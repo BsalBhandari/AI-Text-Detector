@@ -1,43 +1,49 @@
+from flask import Flask, render_template, request
 import requests
 
-# This succesfully get the documents from the API
+app = Flask(__name__)
 
 
 class ApiHandler:
-
     def send_data(self, payload):
         response = requests.post(
             "https://api.gptzero.me/v2/predict/text", json=payload)
         if response.status_code == 200:
-            print("Data sent successfully")
             return response.json()
         else:
-            print("Failed to send data")
-            print(response.status_code)
             return None
 
     def send_file(self, file_path):
         file_endpoint = "https://api.gptzero.me/v2/predict/files"
         file = {'file': open(file_path, 'rb')}
-        response = requests.post(self.url + file_endpoint, files=file)
+        response = requests.post(file_endpoint, files=file)
         if response.status_code == 200:
-            print("File sent successfully")
             return response.json()
         else:
-            print("Failed to send file")
             return None
 
 
 api = ApiHandler()
 
-payload = {
-    "document": "No, this code will not work as a standalone application. It will only make API requests and print the results to the console. To integrate it with a Flask application and make it accessible through HTML and JavaScript, you need to make additional modifications.",
-}
+## index is the first webpage that should be render in this webpage
 
-response_data = api.send_data(payload)
-if response_data is not None:
-    print(response_data)
 
-#response_file = api.send_file("file.txt")
-# if response_file is not None:
- #   print(response_file)
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+# this route handles the data from the user and if the response data is not none it return another html page result.html and the passes the result
+@app.route('/process_form', methods=['POST'])
+def process_form():
+    document = request.form['document']
+    payload = {'document': document}
+    response_data = api.send_data(payload)
+    if response_data is not None:
+        return render_template('result.html', result=response_data)
+    else:
+        return "Failed to send data"
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
