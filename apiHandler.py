@@ -30,7 +30,7 @@ api = ApiHandler()
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('views/index.html')
 
 '''
 this route handles the data from the user and if the response data is not none it render another html page result.html
